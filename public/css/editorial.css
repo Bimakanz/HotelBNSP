@@ -1,0 +1,356 @@
+/* ==========================================================================
+   Editorial Luxury Design System - The Serenity Palace (Hotel BNSP)
+   Palette:
+     Alabaster: #FBF9F5
+     Surface Linen: #F4F0E8
+     Deep Charcoal: #1C1B18
+     Muted Olive/Taupe: #6E6A5F
+     Aged Gold / Warm Terracotta: #9E7B56
+     Border Whisper: #E5DFD3
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-alabaster: #FBF9F5;
+  --bg-surface: #F5F1E9;
+  --bg-card: #FFFFFF;
+  --text-charcoal: #1C1B18;
+  --text-muted: #6E6A5F;
+  --text-subtle: #8C877D;
+  --accent-gold: #9E7B56;
+  --accent-gold-dark: #826241;
+  --accent-gold-light: #F2EBE1;
+  --border-light: #E7E1D4;
+  --border-subtle: #D8D0C0;
+  
+  --font-clean: 'Poppins', sans-serif;
+  --font-sans: 'Poppins', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-alabaster);
+  color: var(--text-charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: 'Poppins', sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Elegant Thin Borders */
+.border-editorial {
+  border: 1px solid var(--border-light);
+}
+
+.border-editorial-subtle {
+  border: 1px solid var(--border-subtle);
+}
+
+/* Animated Underline Navigation Link */
+.nav-link-animated {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.25rem;
+  padding-bottom: 0.35rem;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--text-charcoal);
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link-animated:hover {
+  color: var(--text-charcoal);
+}
+
+.nav-link-animated:hover::after {
+  width: 100%;
+}
+
+.nav-link-animated.active {
+  color: var(--text-charcoal);
+  font-weight: 600;
+}
+
+.nav-link-animated.active::after {
+  width: 100%;
+  background-color: var(--accent-gold);
+}
+
+/* Luxury Card Transitions */
+.luxury-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.luxury-card:hover {
+  border-color: var(--accent-gold);
+}
+
+/* Subtle Buttons */
+.btn-luxury {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-charcoal);
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.875rem 1.75rem;
+  transition: all 0.25s ease;
+  border: 1px solid var(--text-charcoal);
+  cursor: pointer;
+}
+
+.btn-luxury:hover {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #FFFFFF;
+}
+
+.btn-luxury-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--text-charcoal);
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.875rem 1.75rem;
+  transition: all 0.25s ease;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+}
+
+.btn-luxury-outline:hover {
+  border-color: var(--text-charcoal);
+  background-color: #FFFFFF;
+}
+
+.btn-luxury-gold {
+  background-color: var(--accent-gold);
+  color: #FFFFFF;
+  border: 1px solid var(--accent-gold);
+}
+
+.btn-luxury-gold:hover {
+  background-color: var(--accent-gold-dark);
+  border-color: var(--accent-gold-dark);
+}
+
+/* Tactile 3D Push Button (Uiverse.io by satyamchaudharydev) */
+.btn-push-3d {
+  --btn-bg: #9E7B56;
+  --btn-shadow: #705231;
+  --btn-text: #FFFFFF;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  opacity: 0.92;
+  box-shadow: var(--btn-shadow) 0px 7px 2px, rgba(0, 0, 0, 0.45) 0px 8px 6px;
+  text-decoration: none;
+  cursor: pointer;
+  top: 0;
+}
+
+.btn-push-3d:hover {
+  opacity: 1;
+  background: #A6845E;
+  box-shadow: var(--btn-shadow) 0px 8px 2px, rgba(0, 0, 0, 0.5) 0px 10px 8px;
+}
+
+.btn-push-3d:active {
+  top: 4px;
+  box-shadow: var(--btn-shadow) 0px 3px 2px, rgba(0, 0, 0, 0.45) 0px 3px 5px;
+}
+
+/* Animated Sweep Fill Button (Uiverse.io Style by vikiWayne) */
+.btn-swipe-fill {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  z-index: 1;
+  transition: all 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+  text-decoration: none;
+}
+
+.btn-swipe-fill span {
+  position: relative;
+  z-index: 2;
+  transition: color 700ms ease;
+}
+
+.btn-swipe-fill::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #FFFFFF;
+  transform: skewX(45deg);
+  z-index: 1;
+  transition: width 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-swipe-fill:hover {
+  color: #1C1B18 !important;
+  border-color: #FFFFFF;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+}
+
+.btn-swipe-fill:hover::before {
+  width: 250%;
+}
+
+.btn-swipe-fill:hover span {
+  color: #1C1B18 !important;
+}
+
+/* Animated Sweep Fill Button for Light Backgrounds (Uiverse.io Style) */
+.btn-swipe-fill-dark {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.875rem 1.75rem;
+  color: #1C1B18;
+  background-color: transparent;
+  border: 1px solid #1C1B18;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+  text-decoration: none;
+}
+
+.btn-swipe-fill-dark span,
+.btn-swipe-fill-dark svg {
+  position: relative;
+  z-index: 2;
+  transition: color 700ms ease, fill 700ms ease;
+}
+
+.btn-swipe-fill-dark::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #1C1B18;
+  transform: skewX(45deg);
+  z-index: 1;
+  transition: width 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-swipe-fill-dark:hover {
+  color: #FFFFFF !important;
+  border-color: #1C1B18;
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px -5px rgba(28, 27, 24, 0.35);
+}
+
+.btn-swipe-fill-dark:hover::before {
+  width: 250%;
+}
+
+.btn-swipe-fill-dark:hover span {
+  color: #FFFFFF !important;
+}
+
+.btn-swipe-fill-dark:hover svg {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
+
+/* Form Controls with Minimal Luxury Vibe */
+.input-editorial {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  padding: 0.75rem 1rem;
+  color: var(--text-charcoal);
+  font-size: 0.9375rem;
+  transition: border-color 0.2s ease, outline 0.2s ease;
+}
+
+.input-editorial:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 1px var(--accent-gold);
+}
+
+.input-editorial[readonly] {
+  background-color: var(--bg-surface);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Print Invoice Styling */
+@media print {
+  body {
+    background: #FFFFFF !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-card {
+    border: 1px solid #1C1B18 !important;
+    box-shadow: none !important;
+  }
+}
+

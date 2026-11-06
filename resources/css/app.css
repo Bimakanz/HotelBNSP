@@ -1,0 +1,296 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-alabaster: #FBF9F5;
+  --color-surface: #F5F1E9;
+  --color-charcoal: #1C1B18;
+  --color-taupe: #6E6A5F;
+  --color-subtle: #8C877D;
+  --color-gold: #9E7B56;
+  --color-gold-dark: #826241;
+  --color-gold-light: #F2EBE1;
+  --color-border-editorial: #E7E1D4;
+  --color-border-subtle: #D8D0C0;
+
+  --font-serif: 'Poppins', sans-serif;
+  --font-sans: 'Poppins', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Animated Underline Navigation Link */
+.nav-link-animated {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.25rem;
+  padding-bottom: 0.35rem;
+  color: #6E6A5F;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #1C1B18;
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link-animated:hover {
+  color: #1C1B18;
+}
+
+.nav-link-animated:hover::after {
+  width: 100%;
+}
+
+.nav-link-animated.active {
+  color: #1C1B18;
+  font-weight: 600;
+}
+
+.nav-link-animated.active::after {
+  width: 100%;
+  background-color: #9E7B56;
+}
+
+/* Tactile 3D Push Button (Uiverse.io by satyamchaudharydev) */
+.btn-push-3d {
+  --btn-bg: #9E7B56;
+  --btn-shadow: #705231;
+  --btn-text: #FFFFFF;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  opacity: 0.92;
+  box-shadow: var(--btn-shadow) 0px 7px 2px, rgba(0, 0, 0, 0.45) 0px 8px 6px;
+  text-decoration: none;
+  cursor: pointer;
+  top: 0;
+}
+
+.btn-push-3d:hover {
+  opacity: 1;
+  background: #A6845E;
+  box-shadow: var(--btn-shadow) 0px 8px 2px, rgba(0, 0, 0, 0.5) 0px 10px 8px;
+}
+
+.btn-push-3d:active {
+  top: 4px;
+  box-shadow: var(--btn-shadow) 0px 3px 2px, rgba(0, 0, 0, 0.45) 0px 3px 5px;
+}
+
+/* 3D Push Button Variant for Cancel / Secondary Actions */
+.btn-push-3d.btn-cancel,
+.btn-push-3d-cancel {
+  --btn-bg: #5A564D;
+  --btn-shadow: #32302A;
+  --btn-text: #FBF9F5;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.btn-push-3d.btn-cancel:hover,
+.btn-push-3d-cancel:hover {
+  opacity: 1;
+  background: #6E6A5F;
+  box-shadow: var(--btn-shadow) 0px 8px 2px, rgba(0, 0, 0, 0.5) 0px 10px 8px;
+}
+
+.btn-push-3d.btn-cancel:active,
+.btn-push-3d-cancel:active {
+  top: 4px;
+  box-shadow: var(--btn-shadow) 0px 3px 2px, rgba(0, 0, 0, 0.45) 0px 3px 5px;
+}
+
+/* ==========================================================================
+   Print Stylesheet for Official Voucher / Invoice Output
+   ========================================================================== */
+.print-only {
+  display: none;
+}
+
+@media print {
+  /* Sembunyikan semua elemen navigasi, banner, footer, dan tombol interaktif */
+  header,
+  footer,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-card {
+    border: 1.5px solid #000000 !important;
+    box-shadow: none !important;
+    padding: 24px 30px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    background: #ffffff !important;
+  }
+
+  .print-highlight {
+    background-color: #f5f1e9 !important;
+    border-top: 2px solid #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 1.2cm 1.5cm;
+  }
+}
+
+/* Animated Sweep Fill Button (Uiverse.io Style by vikiWayne) */
+.btn-swipe-fill {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  z-index: 1;
+  transition: all 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+  text-decoration: none;
+}
+
+.btn-swipe-fill span {
+  position: relative;
+  z-index: 2;
+  transition: color 700ms ease;
+}
+
+.btn-swipe-fill::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #FFFFFF;
+  transform: skewX(45deg);
+  z-index: 1;
+  transition: width 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-swipe-fill:hover {
+  color: #1C1B18 !important;
+  border-color: #FFFFFF;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+}
+
+.btn-swipe-fill:hover::before {
+  width: 250%;
+}
+
+.btn-swipe-fill:hover span {
+  color: #1C1B18 !important;
+}
+
+/* Animated Sweep Fill Button for Light Backgrounds (Uiverse.io Style) */
+.btn-swipe-fill-dark {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.875rem 1.75rem;
+  color: #1C1B18;
+  background-color: transparent;
+  border: 1px solid #1C1B18;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+  text-decoration: none;
+}
+
+.btn-swipe-fill-dark span,
+.btn-swipe-fill-dark svg {
+  position: relative;
+  z-index: 2;
+  transition: color 700ms ease, fill 700ms ease;
+}
+
+.btn-swipe-fill-dark::before {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: #1C1B18;
+  transform: skewX(45deg);
+  z-index: 1;
+  transition: width 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-swipe-fill-dark:hover {
+  color: #FFFFFF !important;
+  border-color: #1C1B18;
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px -5px rgba(28, 27, 24, 0.35);
+}
+
+.btn-swipe-fill-dark:hover::before {
+  width: 250%;
+}
+
+.btn-swipe-fill-dark:hover span {
+  color: #FFFFFF !important;
+}
+
+.btn-swipe-fill-dark:hover svg {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+}
